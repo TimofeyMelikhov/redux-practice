@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import reposSlice from './slices/slice'
+import toolkitSlice from './slices/slice'
 
 const rootReducer = combineReducers({
-  repos: reposSlice
+  toolkit: toolkitSlice
 })
 
-export function setupStore() {
+export const setupStore = () => {
   return configureStore({
     reducer: rootReducer
   })

@@ -1,26 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
-  loading: false,
-  repos: []
-}
-
-export const reposSlice = createSlice({
-  name: 'repos',
-  initialState,
+export const toolkitSlice = createSlice({
+  name: 'toolkitSlice',
+  initialState: {
+    count: 0,
+    todos: ['разобраться с toolkit']
+  },
   reducers: {
-    fetching(state) {
-      state.loading = true
+    increment(state) {
+      state.count = state.count + 1
     },
-    fetchSuccess(state, payload) {
-      state.loading = false
-      state.repos = payload
+    decrement(state) {
+      state.count = state.count - 1
     },
-    fetchError(state, payload) {
-      state.loading = false
-      state.error = payload
+    addTodo(state, action) {
+      state.todos.push(action.payload)
+    },
+    removelastTodo(state) {
+      state.todos.pop()
     }
   }
 })
 
-export default reposSlice.reducer
+export default toolkitSlice.reducer
+export const {increment, decrement, addTodo, removelastTodo} = toolkitSlice.actions
