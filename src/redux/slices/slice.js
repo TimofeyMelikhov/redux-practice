@@ -4,7 +4,7 @@ export const toolkitSlice = createSlice({
   name: 'toolkitSlice',
   initialState: {
     count: 0,
-    todos: ['разобраться с toolkit']
+    todos: []
   },
   reducers: {
     increment(state) {
@@ -14,7 +14,7 @@ export const toolkitSlice = createSlice({
       state.count = state.count - 1
     },
     addTodo(state, action) {
-      state.todos.push(action.payload)
+      state.todos = action.payload
     },
     removelastTodo(state) {
       state.todos.pop()
